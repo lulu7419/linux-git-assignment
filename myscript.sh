@@ -21,3 +21,19 @@ else
     echo "[ERROR] Extraction failed: 'raw/raw_data.csv' is missing or empty."
     exit 1
 fi
+
+##===================================================================
+## Transformation
+#1. create directory called Transformed
+
+mkdir -p Transformed
+ ls  Transformed
+
+
+# 2.rename the column and pick the 4 columns
+sed '1s/Variable_code/variable_code/' raw/*.cvs | cut -d ',' -f 1,3,4,5 >Transformed/2023_year_finance.csv
+ 
+# 3. confirm the file is in the folder
+ ls -l Transformed/2023_year_finance.csv
+
+
